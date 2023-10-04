@@ -2,7 +2,7 @@
 import { LitElement, html, css } from 'lit';
 const COLORS_BY_INDEX = ['red', 'blue', 'yellow', 'green', 'black'];
 
-class FireflyComponent extends LitElement {
+export class FireflyComponent extends LitElement {
     static properties = {
         quantity: {}
     };
@@ -16,19 +16,21 @@ class FireflyComponent extends LitElement {
         }
         
         .firefly {
+            background: #fff;
             position: fixed;
+            border-radius: 10px;
             left: 50%;
             top: 50%;
-            width: 0.4vw;
-            height: 0.4vw;
+            width: 10px;
+            height: 10px;
             margin: -0.2vw 0 0 9.8vw;
             animation: ease 200s alternate infinite;
             pointer-events: none;
             transform-origin: -10vw;
+            z-index:1;
         }
         
-        .before,
-        .after {
+        firefly::before, firefly::after {
             content: '';
             position: absolute;
             width: 100%;
@@ -36,90 +38,119 @@ class FireflyComponent extends LitElement {
             border-radius: 50%;
         }
         
-        .before {
+        firefly::before {
             background: black;
             opacity: 0.4;
             animation: drift ease alternate infinite;
         }
         
-        .after {
+        firefly::after {
             background: white;
             opacity: 0;
-            box-shadow: 0 0 0vw 0vw yellow;
+            box-shadow: 0 10 10vw 10vw yellow;
             animation: drift ease alternate infinite, flash ease infinite;
         }
     `;
 
     constructor() {
         super();
-        this.quantity = 15; // Set the quantity of fireflies
+        this.quantity = 30; // Set the quantity of fireflies
     }
 
     render() {
+        const fireflies = [];
+        const befores = [];
+        const afters = [];
+        const keyframes = [];
+
+        for (let i = 0; i < this.quantity; i++) {
+            fireflies.push(this._renderTemplate());
+            befores.push(this._renderTemplateBefore());
+            afters.push(this._renderTemplateAfter()); 
+
+            let steps = Math.floor(Math.random() * 12) + 16;
+            const keys = [];
+            for (let x = 0; x < steps; x++) {
+                keys.push(this._getKeyframe(x , steps));
+            }
+            keyframes.push(keys);
+        }
+
         return html`
-        <!-- No need for static HTML content here -->
+            ${fireflies}
+
+            ${this._getDinamicStyle(fireflies, keyframes)}
+            
         `;
     }
 
-
-    firstUpdated() {
-        // Dynamically create and append fireflies based on the quantity
-        const fragment = document.createDocumentFragment();
-
-        for (let i = 1; i <= this.quantity; i++) {
-        const firefly = document.createElement('div');
-        firefly.className = 'firefly';
-        fragment.appendChild(firefly);
-        }
-        this.shadowRoot.appendChild(fragment);
-
-        // Set up animations for each firefly
-        for (let i = 1; i <= this.quantity; i++) {
-        const steps = Math.floor(Math.random() * 12) + 16;
-        const rotationSpeed = Math.random() * 10 + 8;
-
-        const firefly = this.querySelector(`.firefly:nth-child(${i})`);
-        firefly.style.animationName = `move${i}`;
-        firefly.style.animationDuration = `${rotationSpeed}s`;
-
-        const before = document.createElement('div');
-        before.className = 'before';
-        firefly.appendChild(before);
-
-        const after = document.createElement('div');
-        after.className = 'after';
-        firefly.appendChild(after);
-
-        before.style.animationDuration = `${rotationSpeed}s`;
-
-        const randomDelay = Math.floor(Math.random() * 8000) + 500;
-        after.style.animationDuration = `${rotationSpeed}s, ${randomDelay}ms`;
-        after.style.animationDelay = `0ms, ${randomDelay}ms`;
-
-        // Set up keyframes animation for each firefly
-        const keyframes = [];
-        for (let step = 0; step <= steps; step++) {
-            const percentage = (step * 100) / steps;
-            const translateX = Math.random() * 100 - 50;
-            const translateY = Math.random() * 100 - 50;
-            const scale = Math.random() * 0.75 + 0.25;
-
-            keyframes.push(`${percentage}% {
-            transform: translateX(${translateX}vw) translateY(${translateY}vh) scale(${scale});
-            }`);
-        }
-
-        const moveAnimation = document.createElement('style');
-        moveAnimation.textContent = `@keyframes move${i} {
-            ${keyframes.join('\n')}
-        }`;
-        this.appendChild(moveAnimation);
-        }
+    _renderTemplate() {
+        return html`<div class="firefly"></div>`
+    }
+    _renderTemplateBefore(){
+        return html`<div class="before"></div>`
+    }
+    _renderTemplateAfter(){
+        return html`<div class="after"></div>`
     }
 
+    _getKeyframe(x, steps){
+        let percentage = (x * 100) / steps;
+        let translateX = Math.random() * 100 - 50;
+        let translateY = Math.random() * 100 - 50; 
+        let scale = Math.random() * 0.75 + 0.25;
+
+        let frames = `${percentage}% {
+transform: translateX(${translateX}vw) translateY(${translateY}vh) scale(${scale});
+}\n`;
+
+        return frames;
+    }
+    
+    _getDinamicStyle(fireflies, keyframes){
+        let childs = [];
+        let frames = [];
+        fireflies.forEach((item, index) => {
+            childs.push(`.firefly:nth-child(${index}) {
+                animation-name: move${index};
+                animation-duration: ${this._getRotationSpeed()}s;
+}`)
+            ;
+        })
+
+        for (let i = 0; i < this.quantity; i++) {
+            frames.push(`@keyframes move${i} { 
+${keyframes[i]}
+                }
+            `);
+        }
 
 
+        let before = `firefly::before { 
+    animation-duration: ${this._getRotationSpeed()}s;
+        }`;
+        let after = `firefly::after {
+    animation-duration: ${this._getRotationSpeed()}s, ${this._getRandomDelay()}ms;
+    animation-delay: 0ms, ${this._getRandomDelay()}ms;
+        }`;
 
+        return html `
+            <style>
+                ${childs}
+                ${before}
+                ${after}
+                ${frames}
+           </style>
+        `;
+    }
+
+    _getRotationSpeed(){
+        return (Math.random() * 10 + 8);
+    }
+
+    _getRandomDelay(){
+        return Math.floor(Math.random() * 8000) + 500;
+    }
 }
 
 customElements.define('firefly-component', FireflyComponent);
