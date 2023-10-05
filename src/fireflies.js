@@ -1,7 +1,6 @@
 // firefly-component.js
 import { LitElement, html, css } from 'lit';
 const COLORS_BY_INDEX = ['red', 'blue', 'yellow', 'green', 'black'];
-const POSITIONS = ['static', 'relative', 'absolute', 'fixed', 'sticky'];
 
 export class FireflyComponent extends LitElement {
     static properties = {
@@ -9,6 +8,19 @@ export class FireflyComponent extends LitElement {
     };
 
     static styles = css`
+        .circle {
+            background-color: #000;
+            position: absolute;
+            border-radius: 300px;
+            position:absolute;
+            top: 45%;
+            left: 45%;
+            width: 200px;
+            height: 200px;
+            z-index: 2;
+            box-shadow: 0 0 50px 60px #000;
+        
+        }
         :host {
             display: block;
             height: 100vh;
@@ -17,56 +29,39 @@ export class FireflyComponent extends LitElement {
         }
         
         .firefly {
-            background: #fff;
             border-radius: 10px;
+            position:absolute;
             left: 50%;
             top: 50%;
-            width: 10px;
-            height: 10px;
-            margin: -0.2vw 0 0 9.8vw;
-            animation: ease 200s alternate infinite;
+            width: 0px;
+            height: 0px;
+            animation: desaparecer ease 200s infinite;
             pointer-events: none;
             transform-origin: -10vw;
             z-index:1;
+            box-shadow: 0 0 20px 8px #e6e6e6;
         }
         
-        firefly::before, firefly::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-        }
-        
-        firefly::before {
-            background: black;
-            opacity: 0.4;
-            animation: drift ease alternate infinite;
-        }
-        
-        firefly::after {
-            background: white;
-            opacity: 0;
-            box-shadow: 0 10 10vw 10vw yellow;
-            animation: drift ease alternate infinite, flash ease infinite;
+        @keyframes desaparecer {
+            0% {
+                opacity: 0.4;
+            } 100%{
+                opacity: 0;
+            }
         }
     `;
 
     constructor() {
         super();
-        this.quantity = 30; // Set the quantity of fireflies
+        this.quantity = 100; // Set the quantity of fireflies
     }
 
     render() {
         const fireflies = [];
-        const befores = [];
-        const afters = [];
         const keyframes = [];
 
         for (let i = 0; i < this.quantity; i++) {
             fireflies.push(this._renderTemplate());
-            befores.push(this._renderTemplateBefore());
-            afters.push(this._renderTemplateAfter()); 
 
             let steps = Math.floor(Math.random() * 12) + 16;
             const keys = [];
@@ -77,9 +72,8 @@ export class FireflyComponent extends LitElement {
         }
 
         return html`
+            <div class="circle"></div>
             ${fireflies}
-            ${afters}
-            ${befores}
             ${this._getDinamicStyle(fireflies, keyframes)}
             
         `;
@@ -87,12 +81,6 @@ export class FireflyComponent extends LitElement {
 
     _renderTemplate() {
         return html`<div class="firefly"></div>`
-    }
-    _renderTemplateBefore(){
-        return html`<div class="before"></div>`
-    }
-    _renderTemplateAfter(){
-        return html`<div class="after"></div>`
     }
 
     _getKeyframe(x, steps){
@@ -109,12 +97,11 @@ transform: translateX(${translateX}vw) translateY(${translateY}vh) scale(${scale
     }
     
     _getDinamicStyle(fireflies, keyframes){
-        let num = Math.floor(Math.random() * 4);
+
         let childs = [];
         let frames = [];
         fireflies.forEach((item, index) => {
             childs.push(`.firefly:nth-child(${index}) {
-                position: ${POSITIONS[num]};
                 animation-name: move${index};
                 animation-duration: ${this._getRotationSpeed()}s;
 }`)
@@ -129,10 +116,10 @@ ${keyframes[i]}
         }
 
 
-        let before = `before { 
+        let before = `.firefly::before { 
     animation-duration: ${this._getRotationSpeed()}s;
         }`;
-        let after = `after {
+        let after = `.firefly::after {
     animation-duration: ${this._getRotationSpeed()}s, ${this._getRandomDelay()}ms;
     animation-delay: 0ms, ${this._getRandomDelay()}ms;
         }`;
