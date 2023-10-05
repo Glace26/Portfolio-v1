@@ -1,6 +1,7 @@
 // firefly-component.js
 import { LitElement, html, css } from 'lit';
 const COLORS_BY_INDEX = ['red', 'blue', 'yellow', 'green', 'black'];
+const POSITIONS = ['static', 'relative', 'absolute', 'fixed', 'sticky'];
 
 export class FireflyComponent extends LitElement {
     static properties = {
@@ -17,7 +18,6 @@ export class FireflyComponent extends LitElement {
         
         .firefly {
             background: #fff;
-            position: fixed;
             border-radius: 10px;
             left: 50%;
             top: 50%;
@@ -78,7 +78,8 @@ export class FireflyComponent extends LitElement {
 
         return html`
             ${fireflies}
-
+            ${afters}
+            ${befores}
             ${this._getDinamicStyle(fireflies, keyframes)}
             
         `;
@@ -108,10 +109,12 @@ transform: translateX(${translateX}vw) translateY(${translateY}vh) scale(${scale
     }
     
     _getDinamicStyle(fireflies, keyframes){
+        let num = Math.floor(Math.random() * 4);
         let childs = [];
         let frames = [];
         fireflies.forEach((item, index) => {
             childs.push(`.firefly:nth-child(${index}) {
+                position: ${POSITIONS[num]};
                 animation-name: move${index};
                 animation-duration: ${this._getRotationSpeed()}s;
 }`)
@@ -126,10 +129,10 @@ ${keyframes[i]}
         }
 
 
-        let before = `firefly::before { 
+        let before = `before { 
     animation-duration: ${this._getRotationSpeed()}s;
         }`;
-        let after = `firefly::after {
+        let after = `after {
     animation-duration: ${this._getRotationSpeed()}s, ${this._getRandomDelay()}ms;
     animation-delay: 0ms, ${this._getRandomDelay()}ms;
         }`;
