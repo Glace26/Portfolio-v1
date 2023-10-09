@@ -1,6 +1,5 @@
 // firefly-component.js
 import { LitElement, html, css } from 'lit';
-const COLORS_BY_INDEX = ['red', 'blue', 'yellow', 'green', 'black'];
 
 export class FireflyComponent extends LitElement {
     static properties = {
@@ -9,22 +8,18 @@ export class FireflyComponent extends LitElement {
 
     static styles = css`
         .circle {
-            background-color: #000;
+            background-color: #040212;
             position: absolute;
             border-radius: 300px;
-            position:absolute;
             top: 45%;
             left: 45%;
             width: 200px;
             height: 200px;
-            z-index: 2;
-            box-shadow: 0 0 50px 60px #000;
-        
+            box-shadow: 0 0 50px 60px #040212;
         }
         :host {
             display: block;
             height: 100vh;
-            background-color: #000;
             background-size: cover;
         }
         
@@ -35,19 +30,11 @@ export class FireflyComponent extends LitElement {
             top: 50%;
             width: 0px;
             height: 0px;
-            animation: desaparecer ease 200s infinite;
+            animation: ease 20s alternate infinite;
             pointer-events: none;
             transform-origin: -10vw;
-            z-index:1;
-            box-shadow: 0 0 20px 8px #e6e6e6;
-        }
-        
-        @keyframes desaparecer {
-            0% {
-                opacity: 0.4;
-            } 100%{
-                opacity: 0;
-            }
+            box-shadow: 0 0 15px 6px #84e1de;
+            opacity: 0.8;
         }
     `;
 
@@ -72,10 +59,9 @@ export class FireflyComponent extends LitElement {
         }
 
         return html`
-            <div class="circle"></div>
             ${fireflies}
             ${this._getDinamicStyle(fireflies, keyframes)}
-            
+            <div class="circle"></div>
         `;
     }
 
