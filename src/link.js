@@ -14,32 +14,47 @@ export class LinkItem extends LitElement {
         margin: 0;
     }
     
-    .logo {
-        diplay:flex;
-        transition: all 0.4s ease; 
+    .logo-container {
+        width: 30px;
+        height: 30px;
+    }
+
+    .logo-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        transform: scale(1);
+        background-color: rgba(132, 225, 222, 0);
+        transition: background-color 0.3s ease-in-out; 
+        transition: transform 0.3s ease-in-out; 
+    }
+    .container:hover .logo-container::before {
+        background-color: rgba(132, 225, 222, 1);
+        transform: scale(0.2);
+    }
+
+    .logo{
+        transition: transform 0.3s ease-in-out; 
     }
 
     .container:hover .logo {
-        display: none;
-    }
-        
-    .logo2 {
-        display: none;
-    }
-
-    .container:hover .logo2 {
-        display: flex;
-        animation: scale-down-center 0.4s both;
-    }
-
-    .container:hover .text {
-        animation: slide-left 0.5s both;
+        transform: scale(0.2);
     }
 
     .text {
         color: #84e1de;
         text-decoration: none;
         margin-left: 10px;
+        transform: translateX(0px);
+        transition: transform 0.5s ease;
+    }
+
+    .container:hover .text {
+        transform: translateX(-10px);
+        
     }
 
     .text::after {
@@ -65,7 +80,7 @@ export class LinkItem extends LitElement {
             transform: scale(1);
         }
         100% {
-            transform: scale(0.3);
+            transform: scale(0.2);
         }
     }
     
@@ -83,8 +98,9 @@ export class LinkItem extends LitElement {
     render() {
         return html`
             <div class="container">
+            <div class="logo-container">
                 <img class="logo" src="src/images/component1.png">
-                <img class="logo2" src="src/images/component1-after.png">
+            </div>
                 <a href="#contact" class="text">${this.text}</a>
             </div>
         `;
