@@ -16,3 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Set a timeout to swap the divs after 10 seconds (10000 milliseconds)
     setTimeout(swapDivs, 12000);
 });
+
+
+

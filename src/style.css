@@ -1,7 +1,7 @@
 :root {
     --primary-color: #040212;
     --second-color: #e6e6e6;
-    --blue-color: #84e1de;
+    --blue-color: rgb(132, 225, 222);
     --pink-color: #ffa69e;
 }
 
@@ -21,29 +21,18 @@ html {
     scroll-behavior: smooth;
 }
 
-/* HOME */
+/* ---------------------------------------HOME */
 
-#home, .background-home {
-    padding: 10px;
+#home, .background-home, .firefly {
     width: 100%;
     height: 100vh;
 }
 
 .background-home {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100vh;
     z-index: -1;
-}
-
-.firefly{
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    position: fixed;
 }
 
 #logo, #logo-a {
@@ -52,6 +41,7 @@ html {
 }
 
 nav {
+    padding: 10px;
     margin: 10px;
     display: flex;
     align-items:center;
@@ -121,10 +111,10 @@ nav ul li a:hover::after{
 }
 
 
-/* ABOUT ME */
+/* ---------------------------------------ABOUT ME */
+
 .container {
-    padding: 30px 0px;
-    background-color: var(--primary-color);
+    padding: 100px 0px;
     display:flex;
 }
 
@@ -134,14 +124,14 @@ nav ul li a:hover::after{
     padding: 30px 0;
 }
 
-.aboutme{
-    top:-20px;
+#aboutMe{
+    margin-bottom: 100px;
 }
 
 .about-col-1 {
     flex-basis: 35%;
-    margin: 50px;
     padding-left: 50px;
+    
 }
 
 .about-col-1 img {
@@ -149,18 +139,18 @@ nav ul li a:hover::after{
 }
 
 .about-col-2 {
-    max-width: 1000px;
-    margin-top: 400px;
-    margin-left: 700px;
+    flex-basis: 50%;
+    top: 350px;
     padding-right: 90px;
-    position: absolute;   
+    position: relative;   
+    height:380px;
 }
 
 .btn {
-    display: block;
-    margin: 100px 0;
-    margin-left: 700px;
-    width: fit-content;
+    position: relative;  
+    margin-left: 65%;
+    margin-bottom: 100px;
+    top:20px;
     border: 1px solid var(--second-color); 
     padding: 16px 50px;
     text-decoration: none;
@@ -171,4 +161,19 @@ nav ul li a:hover::after{
 .btn:hover {
     background-color: var(--second-color);
     color: var(--primary-color);
+}
+
+.link{
+    position:relative;
+    top:100px;
+    
+}
+
+#id{
+    position:relative;
+}
+
+.prueba {
+    width: 100%;
+    height: 100vh;
 }
