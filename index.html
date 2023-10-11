@@ -2,14 +2,80 @@
 <html lang="en">
 <head>
     <script type="module" src="index.js"></script>
+    <script type="module" src="src/code.js"></script>
     <link rel="stylesheet" href="src/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter">
+    <style>
+        body {
+            font-family: 'Inter';
+        }
+    </style>
+
 </head>
 <body>
-    <div class="blur"></div>
-    <firefly-component></firefly-component>
+     <!----HOME---->
+     
+    <div id="home">
+        <div class="background-home">
+            <firefly-component class="firefly"></firefly-component>
+        </div>
+
+        <nav>
+            <a id="logo-a" href="#background-home">
+                <img id="logo" src="src/images/marca-personal(sinfondo-r).png" alt="">
+            </a>
+            <ul id="sidemenu">
+                <li><a href="#exp">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="home-text">
+            <h1 class="text"><b>Celia Rodríguez del Amor</b></h1>
+            <p>Front-End Developer & Designer</p>
+        </div>  
+    </div>
+
+     <!-- --ABOUT-ME---->
+     <div id="about">
+        <div class="container">
+            <div class="row">
+                <moving-text text="-  ABOUT ME  -  SOBRE MI  - SUR MOI  -  &#220;BER MICH&#160;"></moving-text>    
+                
+                <div class="about-col-1">
+                    <img id="foto" src="src/images/foto.jpeg">
+                </div>
+                    
+                <div class="about-col-2">
+                    <div id="aboutMe">
+                        <p >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Deserunt odio dolor nemo excepturi animi. Aliquid omnis 
+                        eveniet maxime temporibus saepe impedit esse? Qui perferendis 
+                        a nobis? Provident dolor repellat odit!Aspernatur totam, 
+                        delectus distinctio enim minima consequatur provident 
+                        molestias perspiciatis impedit, mollitia, cum quisquam 
+                        rerum tempore! Enim in facere, autem vero doloribus incidunt 
+                        excepturi sunt sed quo assumenda iusto tempore?
+                        </p>
+                    </div>
+                    <a href="src/images/CV 2023.pdf" download class="btn">Download CV</a>
+                    <link-item class="link" text="Let's get in touch"></link-item>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <skills-component id="skill" text="Web &#160;Developement &#160;&nbsp;&#160; - &#160;&nbsp;&#160; Design &#160;&nbsp;&#160; - &#160;&nbsp;&#160;  Branding &#160;&nbsp;&#160;  - &#160;&nbsp;&#160; UX/UI &#160;Design &#160;&nbsp;&#160; - &#160;"></skills-component>
+
+
+    <div class="prueba"></div>
 </body>
 </html>
