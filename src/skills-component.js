@@ -10,7 +10,6 @@ export class SkillsComponent extends LitElement {
         window.addEventListener("scroll", () => {
             this.handleScroll();
         });
-        console.log("a");
     }
     
     handleScroll(){
@@ -22,16 +21,13 @@ export class SkillsComponent extends LitElement {
         logo.forEach(element => {
             element.style.transform = `rotate(${rotationAngle}deg)`;
         });
-
     }
-
-
 
     static styles = css`
         .container {
             display: flex;
             align-items: center;
-            padding: 50px;
+            padding: 20px;
             overflow: hidden;
         }
         
@@ -100,16 +96,14 @@ export class SkillsComponent extends LitElement {
         }
 
         #diamond {
+            flex-basis:35px;
             position:relative;
-            width: 35px;
+            width: 30px;
             height: 30px;
             background: #ffa69e;
             top: 34px;
             transform: rotate(-45deg);
         }
-
-
-
         .text {
             position:relative;
             text-align: center;
@@ -119,6 +113,23 @@ export class SkillsComponent extends LitElement {
             margin-left:50px;
             margin-right:50px;
             top: 10px;
+        }
+
+        @media (max-width: 1200px){
+            .scroll p { {
+                font-size: 16px;
+            }     
+            .text {
+                font-size: 48px;
+            }   
+        }
+        @media (max-width: 900px){
+            .scroll p { {
+                font-size: 12px;
+            }   
+            .text {
+                font-size: 32px;
+            }        
         }
     `;
 

@@ -98,10 +98,10 @@ export class LinkItem extends LitElement {
     render() {
         return html`
             <div class="container">
-            <div class="logo-container">
-                <img class="logo" src="src/images/component1.png">
-            </div>
-                <a href="#contact" class="text">${this.text}</a>
+                <div class="logo-container">
+                    <img class="logo" src="src/images/component1.png">
+                </div>
+                <div class="text">${this.text}</div>
             </div>
         `;
     }
