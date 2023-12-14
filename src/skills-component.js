@@ -44,7 +44,7 @@ export class SkillsComponent extends LitElement {
         .scroll p {
             letter-spacing: .5rem;
             font-size: 20px;
-            color: white;
+            color: #e6e6e6;
             font-weight: bold;
             margin-bottom: 0;
             line-height: 10px;
@@ -113,6 +113,7 @@ export class SkillsComponent extends LitElement {
             margin-left:50px;
             margin-right:50px;
             top: 10px;
+            color:#e6e6e6;
         }
 
         @media (max-width: 1200px){

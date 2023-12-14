@@ -109,18 +109,17 @@ document.addEventListener('mousemove', (e) =>{
   mouseView(e);
 } );
 
-// window.addEventListener('resize', function(e) {
-//   mouseView({ pageX: e.pageX, pageY: e.pageY });
-// } );
-
 function mouseView(e){
-  let xOffset = 20; 
-  let yOffset = 3350; 
+  let yOffset = 30; 
+  let xOffset = 10; 
 
   let y = e.pageY - yOffset;
   let x = e.pageX - xOffset;
 
-  view.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+  view.style.left = x + 'px';
+  view.style.top = y + 'px';
+
+  //view.style.transform = `translate3d(${x}px, ${y}px, 0)`;
 };
 
 const label = document.querySelector(".label");
