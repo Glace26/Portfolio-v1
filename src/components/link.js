@@ -1,4 +1,4 @@
-import { LitElement, html, css } from '../../node_modules/lit';
+import { LitElement, html, css } from 'lit';
 
 export class LinkItem extends LitElement {
     static properties = {
