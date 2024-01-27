@@ -1,5 +1,5 @@
 // firefly-component.js
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css } from '../../node_modules/lit';
 
 export class FireflyComponent extends LitElement {
     static properties = {
