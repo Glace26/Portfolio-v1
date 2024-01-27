@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="module" src="index.js"></script>
+    <script type="module" src="src/components/code.js"></script>
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="icon" href="src/assets/logo/marca-personal(sinfondo-r).png" type="image/png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter">
+    <style>
+        body {
+            font-family: 'Inter';
+        }
+    </style>
+</head>
+<body>
+     <!--  HOME  -->
+    <div id="home">
+        <div class="background-home">
+            <firefly-component class="firefly"></firefly-component>
+        </div>
+        <div id="nav">
+            <nav>
+                <a href="#home">
+                    <img id="logo-a" src="src/assets/logo/marca-personal(sinfondo-r).png" alt="">
+                </a>
+                <ul id="sidemenu">
+                    <li><a href="#about">Experience</a></li>
+                    <li><a href="#projectos">Projects</a></li>
+                    <li><a href="#projectos">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div id="nav2">
+            <a id="logo-2" href="#home">
+                <span>Celia<br>Rodriguez</span>
+            </a>
+            <div class="menu-icon">
+                <div>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="menu-container">
+            <div class="menu-sliders"></div>
+            <div class="menu-sliders"></div>
+            <div class="menu-sliders"></div>
+            
+            <div class="menu">
+                <img id="menu-logo" src="src/assets/logo/marca-personal(sinfondo).png" alt="">
+                <h1 class="text">
+                    Experience
+                    <span>
+                        <a href="#about" >
+                            About me
+                        </a>
+                    </span>
+                </h1>
+                <h1 class="text">
+                    Portfolio
+                    <span>
+                        <a href="" >
+                            Gallery
+                        </a>
+                    </span>
+                </h1>
+                <h1 class="text">
+                    Projects
+                    <span>
+                        <a href="#projectos" >
+                            Most important
+                        </a>
+                    </span>
+                </h1>
+                <h1 class="text">
+                    Contact
+                    <span>
+                        <a href="#contact" >
+                            Let's connect!
+                        </a>
+                    </span>
+                </h1>
+            </div>
+        </div>
+        
+
+        <div class="home-text">
+            <h1 class="text-landing"><b>Celia Rodríguez del Amor</b></h1>
+            <p>Front-End Developer & Designer</p>
+        </div>  
+    </div>
+
+     <!--  ABOUT-ME -->
+     <div id="about">
+        <div class="container">
+            <div class="row">
+                <moving-text text="-  ABOUT ME  -  SOBRE MI  - SUR MOI  -  &#220;BER MICH&#160;"></moving-text>
+                
+                <div class="about-col-1">
+                    <img id="foto" src="src/assets/imgs/foto.jpeg">
+                </div>
+                    
+                <div class="about-col-2">
+                    <div id="aboutMe">
+                        <p>
+                        &emsp;I am a Spanish Designer and Web Developer based in Galicia, currently working at <a href="https://www.pullandbear.com/" target="_blank"><span id="azul">Inditex</span></a> 
+                        as a <span>Web Developer</span>, and volunteering as a <span>Graphic Designer</span> at <a href="https://www.murcialanparty.com/" target="_blank"><span id="azul">MurciaLanParty</span></a>.<br><br>
+                        &emsp;Anyhow, I work remotly with private clients and companies on <span>design, UX/UI or web development</span>. 
+                        Honestly, I am currently a student finishing my Computer Science degree at <a href="https://www.um.es/web/informatica/english-information/brief-history" target="_blank"><span id="gris">University of Murcia</span></a> 
+                        BUT I am eager to apply my knowledge and skills to provide high-quality services!
+                        </p>
+                    </div>  
+                        <a href="src/assets/docs/CV_2023.pdf" download class="btn">Download CV</a>
+                        <a href="#contact">
+                            <link-item class="link" text="Let's get in touch"></link-item>
+                        </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <skills-component text="Web &#160;Developement &#160;&nbsp;&#160; - &#160;&nbsp;&#160; Design &#160;&nbsp;&#160; - &#160;&nbsp;&#160;  Branding &#160;&nbsp;&#160;  - &#160;&nbsp;&#160; UX/UI &#160;Design &#160;&nbsp;&#160; - &#160;"></skills-component>
+    <div id="skill"></div>
+
+    <!-- PROYECTS  -->
+    <div  id="projectos">
+        <moving-text text="PROJECTS - PROYECTOS - PROJEKTE -&#160;"></moving-text>
+
+        <div class="view">
+            <div class="cuadrado">
+                <div class="dot"></div>
+                <div class="label">View</div>
+            </div>
+        </div>
+
+        <div class="container2">
+            <div id="forms">
+                <div id="selected">
+                    <div id="diamond"></div>
+                    <p>Selected work</p>
+                </div>
+                <div id="projects">
+                    <a class="square-1 square">
+                        <div class="photo"></div>
+                        <p class="info">popopopopo</p>
+                    </a>    
+                    <a class="square-2 square">
+                        <div class="photo"></div>
+                        <p class="info">popopopopo</p>
+                    </a>  
+                    <a class="square-3 square">
+                        <div class="photo"></div>
+                        <p class="info">popopopopo</p>
+                    </a>  
+                    <a class="square-4 square">
+                        <div class="photo"></div>
+                        <p class="info">popopopopo</p>
+                    </a>  
+                    
+                </div> 
+                <a href="#projectos">
+                    <link-item class="link2" text="See all projects"></link-item>
+                </a> 
+            </div>   
+            
+        </div>
+        <div class="arrow">
+            <img src="src/assets/icons/arrow.png" alt="">
+        </div> 
+    </div>
+    <!-- CONTACT -->
+
+    <div id="contact">
+        <div class="separator"></div>
+        <div class="emblem">Ponte en contacto · Get in touch · In Kontakt kommen · </div>
+        <div class="contact-info">
+            <div class="container-info">
+                <h1>Let's get in touch</h1>
+                <div id="selected">
+                    <div id="diamond"></div>
+                    <h4 id="negro2">celiardelamor@gmail.com <img id="copy" src="src/assets/icons/copy.png" alt=""></h4>
+                </div>
+                <div id="selected">
+                    <div id="diamond"></div>
+                    <a class="linkedin" href="https://es.linkedin.com/in/celiardelamor" target="_blank">
+                        <h4 id="negro">Linkedin <- </h4>
+                    </a>
+                </div>
+                
+                <a href="mailto:celiardelamor@gmail.com" class="send-mail">Send email</a>
+            </div>
+            <div class="center">
+                <a href="src/assets/docs/CV_2023.pdf" download class="btn2">Download CV</a>
+            </div>
+        </div>
+        <div class="bye">
+            <p >I will respond to you <br>
+                as soon as possible</p>
+        </div>
+    </div>
+
+
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="footer-container">
+            <nav>
+                <ul id="footerMenu">
+                    <li><a href="#about">Experience</a></li>
+                    <li><a href="#projectos">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="copyright">
+                <p>© Celia Rodríguez del Amor</p>
+            </div>
+           
+            <div class="phrase">
+                <p>“Transforming Ideas into Visually <br>
+                    Stunning Interfaces”</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
