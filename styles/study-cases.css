@@ -1,0 +1,135 @@
+:root {
+    --primary-color: #040212;
+    --second-color: #e6e6e6;
+    --blue-color: #84e1de;
+    --pink-color: #ffa69e;
+    --grey-color: #a2a2a2;
+}
+
+
+/* --------------------------------------- WIP COVER*/
+@media screen and (max-width: 760px) {
+    .aviso {
+      display: flex !important;
+    }
+  
+    body {
+      overflow: hidden; /* Bloquear el scroll */
+    }
+      /* Ocultar todos los demás elementos */
+    body > *:not(.aviso) {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 761px) {
+    .aviso {
+      display: none !important;
+    }
+  
+    body {
+      overflow: auto; /* Bloquear el scroll */
+    }
+      /* Ocultar todos los demás elementos */
+    body > *:not(.aviso) {
+        display: block;
+    }
+}
+
+
+.aviso {
+    display: none;
+    position:  absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    text-align: center;
+    font-size: 20px;
+    color: #040212;
+    z-index: 1000;
+}
+
+
+/*--------------------------------------- GENERAL ITEMS*/
+* {
+    color: var(--second-color);
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary-color);
+    font-size: 18px;
+    color: var(--second-color);
+    user-select: none;
+    font-family: 'Inter';
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/*--------------------------------------------------STUDY CASES*/
+.study-cases{
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    width: 100vw;
+    height: fit-content;
+}
+
+    .study-cases_moving-text{
+        height: 250px;
+        width: 100vw;
+    }
+
+    .study-cases_header{
+        display: flex;
+        align-content: stretch;
+        height: 200px;
+        width: 100vw;
+        font-size: 48px;
+    }
+
+        .study-cases_client-name{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            flex: 0.5;
+            text-align: left;
+            padding-left: 150px;
+            max-width: 50%;
+            
+        }
+        .study-cases_project-desc{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            flex: 0.5;
+            text-align: right;
+            padding-right: 150px;
+            max-width: 50%;
+        
+        }
+    
+    .study-cases_image{
+        display: flex;
+        margin-bottom: 100px;
+        width: 1400px;
+        height: 750px;
+        background: #D9D9D9;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+
+    }
+
+    .imagen{
+        width: 1400px;
+        height: 750px;
+    }

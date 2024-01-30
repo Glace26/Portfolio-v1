@@ -2,28 +2,30 @@
 <html lang="en">
 <head>
     <script type="module" src="./index.js"></script>
-    <script type="module" src="./src/components/code.js"></script>
-    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
     <link rel="icon" href="src/assets/logo/marca-personal(sinfondo-r).png" type="image/png">
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-
     <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter">
-    <style>
-        body {
-            font-family: 'Inter';
-        }
-    </style>
 </head>
+
+<div class="aviso">
+    <p>¡Aviso, Work In Progress!<hr> La pantalla es demasiado pequeña para visualizar correctamente el contenido.</p>
+</div>
+
 <body>
+   
      <!--  HOME  -->
     <div id="home">
+        
         <div class="background-home">
             <firefly-component class="firefly"></firefly-component>
         </div>
+
         <div id="nav">
             <nav>
                 <a href="#home">
@@ -31,7 +33,6 @@
                 </a>
                 <ul id="sidemenu">
                     <li><a href="#about">Experience</a></li>
-                    <li><a href="#projectos">Projects</a></li>
                     <li><a href="#projectos">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -48,6 +49,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="menu-container">
             <div class="menu-sliders"></div>
             <div class="menu-sliders"></div>
@@ -97,6 +100,7 @@
         </div>  
     </div>
 
+
      <!--  ABOUT-ME -->
      <div id="about">
         <div class="container">
@@ -129,6 +133,8 @@
     <skills-component text="Web &#160;Developement &#160;&nbsp;&#160; - &#160;&nbsp;&#160; Design &#160;&nbsp;&#160; - &#160;&nbsp;&#160;  Branding &#160;&nbsp;&#160;  - &#160;&nbsp;&#160; UX/UI &#160;Design &#160;&nbsp;&#160; - &#160;"></skills-component>
     <div id="skill"></div>
 
+
+
     <!-- PROYECTS  -->
     <div  id="projectos">
         <moving-text text="PROJECTS - PROYECTOS - PROJEKTE -&#160;"></moving-text>
@@ -136,7 +142,7 @@
         <div class="view">
             <div class="cuadrado">
                 <div class="dot"></div>
-                <div class="label">View</div>
+                <div class="label">View Case</div>
             </div>
         </div>
 
@@ -147,21 +153,29 @@
                     <p>Selected work</p>
                 </div>
                 <div id="projects">
-                    <a class="square-1 square">
-                        <div class="photo"></div>
-                        <p class="info">popopopopo</p>
+                    <a class="square-1 square" href="project-1.html">
+                        <div class="photo">
+                            <img src="./src/assets/imgs/project1.png">
+                        </div>
+                        <p class="info">Coursera</p>
                     </a>    
-                    <a class="square-2 square">
-                        <div class="photo"></div>
-                        <p class="info">popopopopo</p>
+                    <a class="square-2 square"  href="project-2.html">
+                        <div class="photo">
+                            <img src="./src/assets/imgs/project2.png">
+                        </div>
+                        <p class="info">Portfolio</p>
                     </a>  
-                    <a class="square-3 square">
-                        <div class="photo"></div>
-                        <p class="info">popopopopo</p>
+                    <a class="square-3 square"  href="project-3.html">
+                        <div class="photo">
+                            <img src="./src/assets/imgs/project3.png">
+                        </div>
+                        <p class="info"></p>
                     </a>  
-                    <a class="square-4 square">
-                        <div class="photo"></div>
-                        <p class="info">popopopopo</p>
+                    <a class="square-4 square" href="#projectos">
+                        <div class="photo">
+                            <img src="./src/assets/imgs/project4.png">
+                        </div>
+                        <p class="info"></p>
                     </a>  
                     
                 </div> 
@@ -175,8 +189,10 @@
             <img src="src/assets/icons/arrow.png" alt="">
         </div> 
     </div>
-    <!-- CONTACT -->
 
+
+
+    <!-- CONTACT -->
     <div id="contact">
         <div class="separator"></div>
         <div class="emblem">Ponte en contacto · Get in touch · In Kontakt kommen · </div>
